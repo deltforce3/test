@@ -1,6 +1,6 @@
 # Starlight AI
 
-一个星空主题的 AI 助手网页，通过 FastAPI 后端代理 Ollama 的 `/api/chat` 流式接口。
+一个星空主题的 AI 助手网页，通过 FastAPI 后端代理 Ollama 的 `/api/chat` 流式接口,适合新手尝鲜。
 
 ## 使用
 
