@@ -4,12 +4,14 @@ from pathlib import Path
 import httpx
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, Response, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
 OLLAMA_URL = "http://localhost:11434"
 app = FastAPI(title="Starlight AI API")
+app.mount("/static", StaticFiles(directory=PROJECT_DIR), name="static")
 
 
 class ChatRequest(BaseModel):
