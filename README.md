@@ -14,7 +14,7 @@
 
 	```powershell
 	ollama serve
-	ollama pull llama3.2
+	ollama pull deepseek-r1:1.5b
 	```
 
 3. 启动 FastAPI 后端：
@@ -23,13 +23,6 @@
 	python -m uvicorn back:app --reload --host 0.0.0.0 --port 8000
 	```
 
-4. 访问 `http://localhost:8000`。网页会请求同源的 `/api/chat`，后端默认连接 `http://127.0.0.1:11434`。
-
-如果 Ollama 不在本机，可先设置后端环境变量：
-
-	```powershell
-	$env:OLLAMA_URL = "http://你的 Ollama 服务器地址:11434"
-	python -m uvicorn back:app --host 0.0.0.0 --port 8000
-	```
+4. 访问 `http://localhost:8000`。网页会请求同源的 `/api/chat`，后端固定连接 `http://localhost:11434`。网页中的模型菜单会读取 Ollama 已部署的模型，默认选择 `deepseek-r1:1.5b`。
 
 直接双击 `web_1.html` 不再是完整运行方式，需要通过 FastAPI 地址访问。
